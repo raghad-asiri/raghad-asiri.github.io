@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's talk — Raghad Asiri</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Raghad Asiri</a>
+    <ul class="nav-links">
+      <li><a href="updates.html">Updates!</a></li>
+      <li><a href="cities.html">Cities</a></li>
+      <li class="dropdown">
+        <a href="#">Projects</a>
+        <ul class="dropdown-menu">
+          <li><a href="projects/paths-tread.html">Paths Tread</a></li>
+          <li><a href="projects/structure-and-abandonment.html">Structure and Abandonment</a></li>
+          <li><a href="projects/mint-magazine.html">Mint Magazine</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html">Me</a></li>
+      <li class="btn-link"><a href="contact.html" class="active">Let's talk :)</a></li>
+    </ul>
+  </nav>
+
+  <div class="contact-container">
+    <h1 class="contact-title">Let's talk!</h1>
+    <p class="contact-subtitle">
+      Tell me anything. How an image made you feel, or an opportunity to work
+      together, a photographer I would love, or such.
+    </p>
+
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- Replace YOUR_FORM_ID with your Formspree form ID, or swap for another form service -->
+
+      <div class="form-section">
+        <span class="form-label">your name <span class="note">(optional)</span></span>
+        <div class="form-row">
+          <div>
+            <span class="sub-label">First Name</span>
+            <input type="text" name="first_name" class="form-control" autocomplete="given-name">
+          </div>
+          <div>
+            <span class="sub-label">Last Name</span>
+            <input type="text" name="last_name" class="form-control" autocomplete="family-name">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <label for="message" class="form-label">your message <span class="note">(required)</span></label>
+        <textarea id="message" name="message" class="form-control" required></textarea>
+      </div>
+
+      <div class="form-section">
+        <label for="email" class="form-label">your email</label>
+        <span class="sub-label">(if you want me to respond)</span>
+        <input type="email" id="email" name="email" class="form-control" autocomplete="email">
+      </div>
+
+      <button type="submit" class="btn-send">send</button>
+    </form>
+  </div>
+
+</body>
+</html>

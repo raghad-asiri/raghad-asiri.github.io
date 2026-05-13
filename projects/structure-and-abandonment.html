@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structure and Abandonment — Raghad Asiri</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Raghad Asiri</a>
+    <ul class="nav-links">
+      <li><a href="../updates.html">Updates!</a></li>
+      <li><a href="../cities.html">Cities</a></li>
+      <li class="dropdown">
+        <a href="#" class="active">Projects</a>
+        <ul class="dropdown-menu">
+          <li><a href="paths-tread.html">Paths Tread</a></li>
+          <li><a href="structure-and-abandonment.html">Structure and Abandonment</a></li>
+          <li><a href="mint-magazine.html">Mint Magazine</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Me</a></li>
+      <li class="btn-link"><a href="../contact.html">Let's talk :)</a></li>
+    </ul>
+  </nav>
+
+  <div class="structure-header">
+    <h1 class="structure-title">Structure and Abandonment</h1>
+    <p class="structure-subtitle">A story of buildings throughout their lifetimes, in use and disuse and in their variety of states.</p>
+  </div>
+
+  <!-- Carousel -->
+  <div class="carousel-wrap" id="sa-carousel">
+    <div class="carousel-main">
+
+      <!-- Replace photo-placeholder divs with <img> tags when photos are ready -->
+      <!-- e.g. <img src="../images/structure-abandonment/01.jpg" alt="Industrial factory interior, B&W"> -->
+
+      <div class="carousel-slide active">
+        <div class="photo-placeholder r-3-2">structure-abandonment/01.jpg — B&W industrial factory interior</div>
+      </div>
+      <div class="carousel-slide">
+        <div class="photo-placeholder r-3-2">structure-abandonment/02.jpg — B&W aerial: harbor with crane structures</div>
+      </div>
+      <div class="carousel-slide">
+        <div class="photo-placeholder r-3-2">structure-abandonment/03.jpg — B&W: concrete pier pillars in water</div>
+      </div>
+      <div class="carousel-slide">
+        <div class="photo-placeholder r-3-2">structure-abandonment/04.jpg — B&W: modernist/futuristic building exterior</div>
+      </div>
+      <div class="carousel-slide">
+        <div class="photo-placeholder r-3-2">structure-abandonment/05.jpg — B&W: brutalist concrete courtyard walls</div>
+      </div>
+      <div class="carousel-slide">
+        <div class="photo-placeholder r-3-2">structure-abandonment/06.jpg — (add more photos as needed)</div>
+      </div>
+
+      <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
+      <button class="carousel-btn next" aria-label="Next">&#8250;</button>
+    </div>
+
+    <div class="carousel-thumbs">
+      <div class="carousel-thumb active">
+        <div class="photo-placeholder r-4-3">01</div>
+      </div>
+      <div class="carousel-thumb">
+        <div class="photo-placeholder r-4-3">02</div>
+      </div>
+      <div class="carousel-thumb">
+        <div class="photo-placeholder r-4-3">03</div>
+      </div>
+      <div class="carousel-thumb">
+        <div class="photo-placeholder r-4-3">04</div>
+      </div>
+      <div class="carousel-thumb">
+        <div class="photo-placeholder r-4-3">05</div>
+      </div>
+      <div class="carousel-thumb">
+        <div class="photo-placeholder r-4-3">06</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const wrap = document.getElementById('sa-carousel');
+      const slides = wrap.querySelectorAll('.carousel-slide');
+      const thumbs = wrap.querySelectorAll('.carousel-thumb');
+      const prev = wrap.querySelector('.carousel-btn.prev');
+      const next = wrap.querySelector('.carousel-btn.next');
+      let current = 0;
+
+      function show(index) {
+        slides[current].classList.remove('active');
+        thumbs[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        thumbs[current].classList.add('active');
+      }
+
+      prev.addEventListener('click', () => show(current - 1));
+      next.addEventListener('click', () => show(current + 1));
+      thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+    })();
+  </script>
+
+</body>
+</html>

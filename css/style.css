@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0efed;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  color: #1a1a1a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  width: 100%;
+}
+
+/* =====================
+   NAVIGATION
+   ===================== */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+}
+
+.nav-logo {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* "Let's talk :)" button style */
+.nav-links .btn-link a {
+  border: 1px solid #1a1a1a;
+  padding: 4px 10px;
+}
+
+/* Projects dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  list-style: none;
+  text-align: right;
+  z-index: 100;
+  min-width: 200px;
+}
+
+.dropdown-menu li {
+  padding: 3px 0;
+}
+
+.dropdown-menu a {
+  white-space: nowrap;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* =====================
+   PHOTO PLACEHOLDERS
+   ===================== */
+
+.photo-placeholder {
+  background-color: #d8d6d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 11px;
+  font-weight: 300;
+  width: 100%;
+  letter-spacing: 0.02em;
+}
+
+.photo-placeholder.r-16-9  { aspect-ratio: 16 / 9; }
+.photo-placeholder.r-3-2   { aspect-ratio: 3 / 2; }
+.photo-placeholder.r-2-3   { aspect-ratio: 2 / 3; }
+.photo-placeholder.r-4-3   { aspect-ratio: 4 / 3; }
+.photo-placeholder.r-wide  { aspect-ratio: 21 / 9; }
+.photo-placeholder.r-tall  { aspect-ratio: 3 / 4; }
+.photo-placeholder.r-square { aspect-ratio: 1; }
+
+/* Fill parent height (used on Me page portrait) */
+.photo-placeholder.fill-height {
+  height: 100%;
+  aspect-ratio: unset;
+}
+
+/* =====================
+   ME (HOME) PAGE
+   ===================== */
+
+.me-layout {
+  display: grid;
+  grid-template-columns: 1fr 43%;
+  min-height: calc(100vh - 57px);
+}
+
+.me-text {
+  padding: 60px 60px 80px 40px;
+  display: flex;
+  align-items: center;
+}
+
+.me-text p {
+  max-width: 400px;
+  line-height: 1.75;
+}
+
+.me-image {
+  overflow: hidden;
+}
+
+/* =====================
+   UPDATES LIST PAGE
+   ===================== */
+
+.updates-container {
+  max-width: 560px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.update-entry {
+  margin-bottom: 40px;
+}
+
+.update-date {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.update-title {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.read-more {
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* =====================
+   BLOG POST PAGE
+   ===================== */
+
+.post-container {
+  max-width: 600px;
+  margin: 70px auto;
+  padding: 0 40px;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 14px;
+}
+
+.post-title {
+  font-size: 18px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  margin-bottom: 30px;
+}
+
+.post-body p {
+  line-height: 1.8;
+}
+
+/* =====================
+   CONTACT PAGE
+   ===================== */
+
+.contact-container {
+  max-width: 560px;
+  margin: 60px auto;
+  padding: 0 40px;
+}
+
+.contact-title {
+  font-size: 28px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.contact-subtitle {
+  margin-bottom: 30px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.contact-form {
+  background-color: #f7f6f4;
+  border: 1px solid #e2e0dc;
+  padding: 32px 30px;
+}
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.form-label .note {
+  font-size: 11px;
+  color: #888;
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.sub-label {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #bbb;
+  background: transparent;
+  padding: 6px 0;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 300;
+  outline: none;
+  color: #1a1a1a;
+}
+
+.form-control:focus {
+  border-bottom-color: #1a1a1a;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 90px;
+  border: 1px solid #bbb;
+  padding: 8px;
+  display: block;
+}
+
+.btn-send {
+  border: 1px solid #1a1a1a;
+  background: transparent;
+  padding: 8px 22px;
+  font-size: 13px;
+  font-family: inherit;
+  font-weight: 300;
+  cursor: pointer;
+  color: #1a1a1a;
+  margin-top: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-send:hover {
+  background: #1a1a1a;
+  color: #f0efed;
+}
+
+/* =====================
+   CITIES GRID PAGE
+   ===================== */
+
+.cities-intro {
+  text-align: center;
+  margin: 50px 0 40px;
+  font-size: 13px;
+}
+
+.cities-grid-container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.cities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 30px;
+}
+
+.city-card a {
+  display: block;
+}
+
+.city-card a:hover .photo-placeholder {
+  opacity: 0.88;
+}
+
+.city-card a:hover img {
+  opacity: 0.88;
+}
+
+.city-name {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #333;
+}
+
+/* =====================
+   CITY GALLERY PAGE
+   ===================== */
+
+.city-gallery {
+  padding-bottom: 60px;
+}
+
+.city-gallery .photo-placeholder,
+.city-gallery img {
+  width: 100%;
+  margin-bottom: 3px;
+}
+
+/* =====================
+   PATHS TREAD PAGE
+   ===================== */
+
+.paths-header {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 60px 40px 0;
+  text-align: center;
+}
+
+.project-title {
+  font-size: 26px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.project-intro {
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.full-width-gallery {
+  margin-top: 50px;
+}
+
+.full-width-gallery .photo-placeholder,
+.full-width-gallery img {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+/* =====================
+   STRUCTURE & ABANDONMENT
+   ===================== */
+
+.structure-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  padding: 60px 60px 50px;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.structure-title {
+  font-size: 34px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.structure-subtitle {
+  font-size: 13px;
+  line-height: 1.7;
+  padding-top: 6px;
+}
+
+/* Carousel */
+.carousel-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+.carousel-main {
+  position: relative;
+}
+
+.carousel-slide {
+  display: none;
+}
+
+.carousel-slide.active {
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 12px 16px;
+  color: #555;
+  z-index: 10;
+  line-height: 1;
+  user-select: none;
+}
+
+.carousel-btn:hover { color: #000; }
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
+
+.carousel-thumbs {
+  display: flex;
+  gap: 6px;
+  padding: 8px 10px 0;
+  overflow-x: auto;
+  justify-content: center;
+}
+
+.carousel-thumb {
+  width: 78px;
+  flex-shrink: 0;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+.carousel-thumb.active { opacity: 1; }
+
+.carousel-thumb .photo-placeholder {
+  width: 78px;
+  font-size: 8px;
+}
+
+.carousel-thumb .photo-placeholder.r-4-3 { aspect-ratio: 4/3; }
+
+.carousel-thumb img {
+  width: 78px;
+  height: 58px;
+  object-fit: cover;
+}
+
+/* =====================
+   MINT MAGAZINE PAGE
+   ===================== */
+
+.mint-intro {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 60px 40px 40px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.mint-section {
+  max-width: 820px;
+  margin: 0 auto 70px;
+  padding: 0 40px;
+}
+
+.mint-section-title {
+  font-size: 26px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.mint-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 36px;
+}
+
+.mint-split-text p {
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.mint-split-text blockquote {
+  font-style: italic;
+  border-left: 2px solid #ccc;
+  padding-left: 14px;
+  color: #444;
+  margin: 14px 0;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.mint-cover img,
+.mint-cover .photo-placeholder {
+  width: 100%;
+}
