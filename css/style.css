@@ -213,9 +213,13 @@ nav {
 .coming-soon {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 400;
-  font-size: 64px;
+  font-size: clamp(48px, 10vw, 140px);
   text-align: center;
-  margin: 180px 0;
+  margin: 0;
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* =====================
