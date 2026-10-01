@@ -207,6 +207,18 @@ nav {
 }
 
 /* =====================
+   COMING SOON
+   ===================== */
+
+.coming-soon {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 64px;
+  text-align: center;
+  margin: 180px 0;
+}
+
+/* =====================
    CONTACT PAGE
    ===================== */
 
