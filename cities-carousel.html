@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Cities — Raghad Asiri</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Test design: styles kept on this page so css/style.css (and the live Cities page) are untouched -->
+  <style>
+    .cc-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 0 70px;
+    }
+
+    .cc-title {
+      text-align: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      min-height: 34px;
+    }
+
+    .cc-title a:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .cc-stage {
+      position: relative;
+      height: 72vh;
+      max-height: 680px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 60px;
+    }
+
+    .cc-stage img {
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
+      height: auto;
+      object-fit: contain;
+      opacity: 1;
+      transition: opacity 0.25s;
+    }
+
+    .cc-stage img.loading { opacity: 0; }
+
+    .cc-count {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-top: 16px;
+    }
+
+    .cc-back {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      margin-top: 6px;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      color: #666;
+    }
+
+    @media (max-width: 700px) {
+      .cc-wrap { padding: 24px 16px 50px; }
+      .cc-title { font-size: 24px; margin-bottom: 16px; }
+      .cc-stage { height: auto; max-height: none; min-height: 200px; padding: 0; }
+      .cc-stage img { max-height: 75vh; }
+      .cc-stage .carousel-btn { background: rgba(240, 239, 237, 0.7); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Raghad Asiri</a>
+    <ul class="nav-links">
+      <li><a href="updates.html">Updates!</a></li>
+      <li><a href="cities.html" class="active">Cities</a></li>
+      <li class="dropdown">
+        <a href="projects.html">Projects</a>
+        <ul class="dropdown-menu">
+          <li><a href="projects/paths-tread.html">Paths Tread</a></li>
+          <li><a href="projects/structure-and-abandonment.html">Structure and Abandonment</a></li>
+          <li><a href="projects/mint-magazine.html">Mint Magazine</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html">Me</a></li>
+      <li class="btn-link"><a href="contact.html">Let's talk :)</a></li>
+    </ul>
+  </nav>
+
+  <p class="cities-intro">Cities I have had the pleasure of experiencing!</p>
+
+  <div class="cc-wrap" id="cities-carousel">
+    <h1 class="cc-title" aria-live="polite"><a id="cc-title" href="#"></a></h1>
+    <div class="cc-stage">
+      <button class="carousel-btn prev" aria-label="Previous photo">&#8249;</button>
+      <img id="cc-img" alt="">
+      <button class="carousel-btn next" aria-label="Next photo">&#8250;</button>
+    </div>
+    <div class="cc-count" id="cc-count"></div>
+  </div>
+
+  <script>
+    // Every city: [folder, "City, Country", number of photos]
+    const CITIES = [
+      ['coimbatore', 'Coimbatore, India', 27],
+      ['geneva', 'Geneva, Switzerland', 2],
+      ['prague', 'Prague, Czech Republic', 3],
+      ['istanbul', 'Istanbul, Turkey', 6],
+      ['berlin', 'Berlin, Germany', 5],
+      ['paris', 'Paris, France', 2],
+      ['bay-area', 'Bay Area, California', 2],
+      ['budapest', 'Budapest, Hungary', 1],
+      ['laamu', 'Laamu, Maldives', 2],
+    ];
+
+    const photos = [];
+    CITIES.forEach(([slug, name, n]) => {
+      for (let i = 1; i <= n; i++) {
+        photos.push({ slug, name, src: `images/cities/${slug}/${String(i).padStart(2, '0')}.jpg` });
+      }
+    });
+
+    // Shuffle (Fisher–Yates) so the order is different on every visit
+    for (let i = photos.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [photos[i], photos[j]] = [photos[j], photos[i]];
+    }
+
+    const img = document.getElementById('cc-img');
+    const title = document.getElementById('cc-title');
+    const count = document.getElementById('cc-count');
+    const wrap = document.getElementById('cities-carousel');
+    let current = 0;
+
+    function preload(i) {
+      const p = photos[(i + photos.length) % photos.length];
+      new Image().src = p.src;
+    }
+
+    function show(index) {
+      current = (index + photos.length) % photos.length;
+      const p = photos[current];
+      img.classList.add('loading');
+      img.onload = () => img.classList.remove('loading');
+      img.src = p.src;
+      img.alt = p.name;
+      title.textContent = p.name;
+      title.href = `cities/${p.slug}.html`;
+      count.textContent = `${current + 1} / ${photos.length}`;
+      preload(current + 1);
+      preload(current - 1);
+    }
+
+    wrap.querySelector('.carousel-btn.prev').addEventListener('click', () => show(current - 1));
+    wrap.querySelector('.carousel-btn.next').addEventListener('click', () => show(current + 1));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+
+    // Swipe on phones
+    let touchX = null;
+    wrap.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    wrap.addEventListener('touchend', (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+      touchX = null;
+    });
+
+    show(0);
+  </script>
+
+  <script data-goatcounter="https://raghadasiri.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b2685c4d-f075-4c27-9ee5-f1424f5863f7"></script>
+
+</body>
+</html>
