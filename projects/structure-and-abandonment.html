@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structure and Abandonment — Raghad Asiri</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Raghad Asiri</a>
+    <ul class="nav-links">
+      <li><a href="../updates.html">Updates!</a></li>
+      <li><a href="../cities.html">Cities</a></li>
+      <li class="dropdown">
+        <a href="../projects.html" class="active">Projects</a>
+        <ul class="dropdown-menu">
+          <li><a href="../projects/paths-tread.html">Paths Tread</a></li>
+          <li><a href="../projects/structure-and-abandonment.html">Structure and Abandonment</a></li>
+          <li><a href="../projects/mint-magazine.html">Mint Magazine</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Me</a></li>
+      <li class="btn-link"><a href="../contact.html">Let's talk :)</a></li>
+    </ul>
+  </nav>
+
+  <div class="structure-header">
+    <h1 class="structure-title">Structure and Abandonment</h1>
+    <p class="structure-subtitle">A story of buildings throughout their lifetimes, in use and disuse and in their variety of states.</p>
+  </div>
+
+  <div class="carousel-wrap" id="sa-carousel">
+    <div class="carousel-main">
+      <div class="carousel-slide active"><img src="../images/structure-abandonment/01.jpg" alt="Interior of an industrial warehouse, black and white" width="2200" height="1464"></div>
+      <div class="carousel-slide"><img src="../images/structure-abandonment/02.jpg" alt="Harbor with a gantry crane, seen from above, black and white" width="2200" height="1487" loading="lazy"></div>
+      <div class="carousel-slide"><img src="../images/structure-abandonment/03.jpg" alt="Concrete pier pillars standing in still water, black and white" width="2200" height="1476" loading="lazy"></div>
+      <div class="carousel-slide"><img src="../images/structure-abandonment/04.jpg" alt="Angular modernist building exterior, black and white" width="2200" height="1469" loading="lazy"></div>
+      <div class="carousel-slide"><img src="../images/structure-abandonment/05.jpg" alt="Brutalist concrete walls in a courtyard, black and white" width="2200" height="1469" loading="lazy"></div>
+      <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
+      <button class="carousel-btn next" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="carousel-thumbs">
+      <button class="carousel-thumb active" aria-label="Show image 1"><img src="../images/structure-abandonment/thumbs/01.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 2"><img src="../images/structure-abandonment/thumbs/02.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 3"><img src="../images/structure-abandonment/thumbs/03.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 4"><img src="../images/structure-abandonment/thumbs/04.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 5"><img src="../images/structure-abandonment/thumbs/05.jpg" alt="" loading="lazy"></button>
+    </div>
+  </div>
+
+  <script>
+    function initCarousel(id) {
+      const wrap = document.getElementById(id);
+      if (!wrap) return;
+      const slides = wrap.querySelectorAll('.carousel-slide');
+      const thumbs = wrap.querySelectorAll('.carousel-thumb');
+      let current = 0;
+      function show(index) {
+        slides[current].classList.remove('active');
+        thumbs[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        thumbs[current].classList.add('active');
+      }
+      wrap.querySelector('.carousel-btn.prev').addEventListener('click', () => show(current - 1));
+      wrap.querySelector('.carousel-btn.next').addEventListener('click', () => show(current + 1));
+      thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+      document.addEventListener('keydown', (e) => {
+        const r = wrap.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+      });
+    }
+    initCarousel('sa-carousel');
+  </script>
+
+  <script data-goatcounter="https://raghadasiri.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b2685c4d-f075-4c27-9ee5-f1424f5863f7"></script>
+
+</body>
+</html>

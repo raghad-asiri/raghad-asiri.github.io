@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mint Magazine — Raghad Asiri</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">Raghad Asiri</a>
+    <ul class="nav-links">
+      <li><a href="../updates.html">Updates!</a></li>
+      <li><a href="../cities.html">Cities</a></li>
+      <li class="dropdown">
+        <a href="../projects.html" class="active">Projects</a>
+        <ul class="dropdown-menu">
+          <li><a href="../projects/paths-tread.html">Paths Tread</a></li>
+          <li><a href="../projects/structure-and-abandonment.html">Structure and Abandonment</a></li>
+          <li><a href="../projects/mint-magazine.html">Mint Magazine</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html">Me</a></li>
+      <li class="btn-link"><a href="../contact.html">Let's talk :)</a></li>
+    </ul>
+  </nav>
+
+  <p class="mint-intro">
+    Mint Magazine is a fashion magazine that I worked on for 2 years. I joined the photography team and
+    helped publish 2 issues, after which I was appointed creative director. How joyous! Below are snippets
+    of my contributions to the magazine, including 2 covers and creating the theme for our fall 2024 issue.
+  </p>
+
+  <div class="mint-section">
+    <h2 class="mint-section-title">Of Silk and Steel</h2>
+
+    <div class="mint-split">
+      <div class="mint-split-text">
+        <p>
+          Of Silk and Steel was my first issue as creative director. I shot the cover on
+          my favourite medium (medium format 6x9).
+        </p>
+        <p>
+          Inspired by my practice as a landscape photographer, I designed the theme as follows&mdash;
+        </p>
+        <blockquote>
+          &ldquo;This issue celebrates the interplay between people and their surroundings. In the motion
+          of the body or its stillness, in the shapes it forms and ways it sits, in the colours it dons
+          and shadows it creates. Though built by human hands, these structures often feel distant from
+          us&mdash;yet they stir emotions and stories within, shaping the very spaces we inhabit. We invite
+          you to consider the presence of the human form as it settles within its own creations: dwarfed,
+          magnified, accentuated, or obscured by the architecture around it.
+        </blockquote>
+        <blockquote>
+          Structures tower above, reminding us of how we&rsquo;ve shaped our habitat to be both a refuge and
+          a mirror, standing both in harmony and in tension with nature. What choices did we make to
+          create these structures, and how do those choices now define us? How do lifeless constructions
+          inspire depth and emotion? Can the body, in its natural form, become a part of the architecture
+          it moves through, adding spirit to the stillness?
+        </blockquote>
+        <blockquote>
+          In this issue, we explore the push and pull between our forms and our creations, the subtle
+          lines between the animate and inanimate, between those who build and what is built.&rdquo;
+        </blockquote>
+      </div>
+      <div class="mint-cover">
+        <img src="../images/mint-magazine/silk-steel-cover.jpg" alt="Mint Magazine Fall/Winter 2025 cover, Of Silk and Steel" width="1234" height="1600">
+      </div>
+    </div>
+  </div>
+
+  <div class="mint-section">
+    <h2 class="mint-section-title">The Time Keepers</h2>
+    <p class="mint-section-text">
+      The Time Keepers was a project on which I was creative director and photographer. It centres around
+      the mythological beings found in various cultures that bring about a spring bloom following a long winter.
+    </p>
+  </div>
+
+  <div class="carousel-wrap" id="tk-carousel">
+    <div class="carousel-main">
+      <div class="carousel-slide active"><img src="../images/mint-magazine/time-keepers/01.jpg" alt="Models in white dresses in a graffiti-covered abandoned building" width="2200" height="1434"></div>
+      <div class="carousel-slide"><img src="../images/mint-magazine/time-keepers/02.jpg" alt="Spread: models in white in a ruined kitchen, flowers cooking in a pot" width="2200" height="1378" loading="lazy"></div>
+      <div class="carousel-slide"><img src="../images/mint-magazine/time-keepers/03.jpg" alt="Spread: a figure behind a broken window and a woman resting on a painted floor" width="2200" height="1464" loading="lazy"></div>
+      <div class="carousel-slide"><img src="../images/mint-magazine/time-keepers/04.jpg" alt="Spread: a model by a graffiti window looking out over green hills" width="2200" height="1483" loading="lazy"></div>
+      <div class="carousel-slide"><img src="../images/mint-magazine/time-keepers/05.jpg" alt="Spread: a reflection in a mirror and a floral tea set" width="2200" height="1422" loading="lazy"></div>
+      <div class="carousel-slide"><img src="../images/mint-magazine/time-keepers/06.jpg" alt="The Time Keepers title spread" width="2200" height="1363" loading="lazy"></div>
+      <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
+      <button class="carousel-btn next" aria-label="Next">&#8250;</button>
+    </div>
+    <div class="carousel-thumbs">
+      <button class="carousel-thumb active" aria-label="Show image 1"><img src="../images/mint-magazine/time-keepers/thumbs/01.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 2"><img src="../images/mint-magazine/time-keepers/thumbs/02.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 3"><img src="../images/mint-magazine/time-keepers/thumbs/03.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 4"><img src="../images/mint-magazine/time-keepers/thumbs/04.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 5"><img src="../images/mint-magazine/time-keepers/thumbs/05.jpg" alt="" loading="lazy"></button>
+      <button class="carousel-thumb" aria-label="Show image 6"><img src="../images/mint-magazine/time-keepers/thumbs/06.jpg" alt="" loading="lazy"></button>
+    </div>
+  </div>
+
+  <script>
+    function initCarousel(id) {
+      const wrap = document.getElementById(id);
+      if (!wrap) return;
+      const slides = wrap.querySelectorAll('.carousel-slide');
+      const thumbs = wrap.querySelectorAll('.carousel-thumb');
+      let current = 0;
+      function show(index) {
+        slides[current].classList.remove('active');
+        thumbs[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        thumbs[current].classList.add('active');
+      }
+      wrap.querySelector('.carousel-btn.prev').addEventListener('click', () => show(current - 1));
+      wrap.querySelector('.carousel-btn.next').addEventListener('click', () => show(current + 1));
+      thumbs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+      document.addEventListener('keydown', (e) => {
+        const r = wrap.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+      });
+    }
+    initCarousel('tk-carousel');
+  </script>
+
+  <script data-goatcounter="https://raghadasiri.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="b2685c4d-f075-4c27-9ee5-f1424f5863f7"></script>
+
+</body>
+</html>

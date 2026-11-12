@@ -73,9 +73,10 @@ nav {
 
 .dropdown-menu {
   display: none;
+  padding-top: 6px;
   position: absolute;
   right: 0;
-  top: calc(100% + 6px);
+  top: 100%;
   list-style: none;
   text-align: right;
   z-index: 100;
@@ -90,7 +91,8 @@ nav {
   white-space: nowrap;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
   display: block;
 }
 
@@ -204,22 +206,6 @@ nav {
 
 .post-body p {
   line-height: 1.8;
-}
-
-/* =====================
-   COMING SOON
-   ===================== */
-
-.coming-soon {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(48px, 10vw, 140px);
-  text-align: center;
-  margin: 0;
-  min-height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 /* =====================
@@ -355,8 +341,18 @@ textarea.form-control {
   opacity: 0.88;
 }
 
+.city-card img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: opacity 0.2s;
+}
+
 .city-card a:hover img {
   opacity: 0.88;
+}
+
+.projects-grid {
+  padding-top: 60px;
 }
 
 .city-name {
@@ -370,13 +366,15 @@ textarea.form-control {
    ===================== */
 
 .city-gallery {
-  padding-bottom: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 40px 80px;
 }
 
-.city-gallery .photo-placeholder,
 .city-gallery img {
   width: 100%;
-  margin-bottom: 3px;
+  height: auto;
+  margin-bottom: 40px;
 }
 
 /* =====================
@@ -384,7 +382,7 @@ textarea.form-control {
    ===================== */
 
 .paths-header {
-  max-width: 680px;
+  max-width: 1020px;
   margin: 0 auto;
   padding: 60px 40px 0;
   text-align: center;
@@ -403,13 +401,22 @@ textarea.form-control {
 }
 
 .full-width-gallery {
-  margin-top: 50px;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 0 40px 80px;
 }
 
-.full-width-gallery .photo-placeholder,
 .full-width-gallery img {
   width: 100%;
-  margin-bottom: 4px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+.paths-interlude {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 13px;
 }
 
 /* =====================
@@ -458,6 +465,14 @@ textarea.form-control {
   display: block;
 }
 
+.carousel-slide img {
+  width: auto;
+  max-width: calc(100% - 100px);
+  max-height: 78vh;
+  height: auto;
+  margin: 0 auto;
+}
+
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -486,7 +501,10 @@ textarea.form-control {
 }
 
 .carousel-thumb {
-  width: 78px;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 48px;
   flex-shrink: 0;
   cursor: pointer;
   opacity: 0.55;
@@ -495,16 +513,9 @@ textarea.form-control {
 
 .carousel-thumb.active { opacity: 1; }
 
-.carousel-thumb .photo-placeholder {
-  width: 78px;
-  font-size: 8px;
-}
-
-.carousel-thumb .photo-placeholder.r-4-3 { aspect-ratio: 4/3; }
-
 .carousel-thumb img {
-  width: 78px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   object-fit: cover;
 }
 
@@ -547,16 +558,32 @@ textarea.form-control {
 }
 
 .mint-split-text blockquote {
-  font-style: italic;
-  border-left: 2px solid #ccc;
-  padding-left: 14px;
-  color: #444;
   margin: 14px 0;
-  font-size: 13px;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
-.mint-cover img,
-.mint-cover .photo-placeholder {
+.mint-section-text {
+  max-width: 620px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.mint-cover img {
   width: 100%;
+  height: auto;
+}
+
+/* =====================
+   SMALL SCREENS
+   ===================== */
+
+@media (max-width: 700px) {
+  nav { flex-wrap: wrap; gap: 10px; padding: 16px; }
+  .nav-links { flex-wrap: wrap; gap: 14px; }
+  .cities-grid, .mint-split, .structure-header { grid-template-columns: 1fr; }
+  .cities-grid-container, .city-gallery, .full-width-gallery, .mint-section, .paths-header { padding-left: 16px; padding-right: 16px; }
+  .structure-header { padding: 40px 16px 30px; }
+  .city-gallery img, .full-width-gallery img { margin-bottom: 16px; }
+  .carousel-slide img { max-width: 100%; }
+  .carousel-btn { background: rgba(240, 239, 237, 0.7); }
 }
